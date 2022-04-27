@@ -48,4 +48,3 @@ toDoList.append(input, addButton,titleList, textList);
 
 root.append(toDoList);
 
-
