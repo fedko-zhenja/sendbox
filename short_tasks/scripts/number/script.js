@@ -34,7 +34,7 @@ function hasRemainder(value) {
 
 
 function isInteger (value) {
-    if (isNumber(value) === true && hasRemainder(value) === true) {
+    if (isNumber(value) === true && hasRemainder(value) === false) {
         return true;
     } else {
         return false;
