@@ -17,7 +17,7 @@ function isNaN (value) {
 
 const testArray = [NaN, 1, 'hi', undefined, null, {}, [], 2.222, -25, 338.47];
 
-testFunction(testArray, isNaN);
+// testFunction(testArray, isNaN);
 
 // ===========
 
@@ -29,43 +29,37 @@ function isNumber (value) {
     }
 }
 
-testFunction(testArray, isNumber);
+// testFunction(testArray, isNumber);
 
 
 
-
-
-function hasRemainder(value) {
-    if (value % 1 == 0) {
+// имеет остаток
+function hasRemainder(value) {  
+    if (value % 1 !== 0) {
         return true;
     } else {
         return false;
     }
 }
 
-testFunction(testArray, hasRemainder);
+// testFunction(testArray, hasRemainder);
 
-
-
+// дробное число
 function isFractionalNumber (value) {
+    if (isNumber(value) === true && hasRemainder(value) === true) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// testFunction(testArray, isFractionalNumber);
+
+
+function isIntegerNumber (value) {
     if (isNumber(value) === true && hasRemainder(value) === false) {
         return true;
     } else {
         return false;
     }
 }
-
-testFunction(testArray, isFractionalNumber);
-
-
-// console.log(isFractionalNumber(2.36));
-// console.log(isFractionalNumber(20));
-// console.log(isFractionalNumber(222.97));
-// console.log(isFractionalNumber(NaN));
-// console.log(isFractionalNumber(null));
-// console.log(isFractionalNumber(undefined));
-// console.log(isFractionalNumber(-20));
-
-
-
-// function 
