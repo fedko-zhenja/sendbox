@@ -50,3 +50,106 @@ function lastIndexOf (str, value) {
 }
 
 // console.log(lastIndexOf('Hello, world!', 'o'));
+
+
+function substring (str, index1, index2) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+
+    if (isIntegerNumber(index1) === false) {
+        return null;
+    }
+
+    if (index2 === undefined) {
+        index2 = str.length;
+    }
+
+    if (isIntegerNumber(index2) === false) {
+        return null;
+    }
+
+    let newStr = '';
+
+    for (let i = index1; i < index2; i++) {
+        newStr = newStr + str[i];
+    }
+  return newStr;
+}
+
+// console.log(substring('Hello, my love!', 10, 15));
+
+
+
+function slice (str, index1, index2) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+
+    if (isIntegerNumber(index1) === false) {
+        return null;
+    }
+
+    if (index2 === undefined) {
+        index2 = str.length;
+    }
+
+    if (isIntegerNumber(index2) === false) {
+        return null;
+    }
+
+    let newStr = '';
+
+
+    if (index1 < 0 && index2 < 0) {
+        for (let i = index1; i >= 0; i--) {
+            newStr = newStr + str[i];
+        }
+      return newStr;
+    }
+    
+
+
+
+
+
+    for (let i = index1; i < index2; i++) {
+        newStr = newStr + str[i];
+    }
+  return newStr;
+}
+
+console.log(slice('Hello, my love!', 10, ));
+
+
+
+
+
+
+
+
+
+
+// function trim (str) {
+//     if (typeof str !== 'string') {
+//         return null;
+//     }
+
+//     let newStr = '';
+//     let a ;
+//     let b ;
+//     for (let i = 0; i < str.length; i++) {
+//         if (str[0] === '') {
+//             a = str[0];
+//         } else if (str[-1] === '') {
+//             b = str[-1];
+//         } else {
+//             newStr = str[i];
+//         }
+//     }
+    
+// }
+
+
+
+
