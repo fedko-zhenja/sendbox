@@ -102,24 +102,27 @@ function slice (str, index1, index2) {
 
 
     if (index1 < 0 && index2 < 0) {
-        for (let i = index1; i >= 0; i--) {
-            newStr = newStr + str[i];
-        }
-      return newStr;
+        index1 = str.length + index1;
+        index2 = str.length + index2;
+    }
+
+    if (index1 < 0) {
+        index1 = str.length + index1;
+    }
+
+    if(index2 < 0) {
+        index2 = str.length + index2;
     }
     
-
-
-
-
 
     for (let i = index1; i < index2; i++) {
         newStr = newStr + str[i];
     }
-  return newStr;
+    return newStr;
 }
-
-console.log(slice('Hello, my love!', 10, ));
+const arrayIndex = [-11, -5];
+console.log(slice('Hello, my love!',...arrayIndex));
+console.log('Hello, my love!'.slice(...arrayIndex));
 
 
 
