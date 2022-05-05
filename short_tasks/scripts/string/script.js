@@ -17,7 +17,6 @@ function charAt (str, index) {
 // console.log(charAt('Привет', 2));
 
 
-
 function indexOf (str, value) {
     if (typeof str !== 'string' || typeof value !== 'string') {
         return null;
@@ -52,6 +51,7 @@ function lastIndexOf (str, value) {
 // console.log(lastIndexOf('Hello, world!', 'o'));
 
 
+// сравнить как работает ориигинальный метод
 function substring (str, index1, index2) {
     if (typeof str !== 'string') {
         return null;
@@ -74,11 +74,11 @@ function substring (str, index1, index2) {
     for (let i = index1; i < index2; i++) {
         newStr = newStr + str[i];
     }
-  return newStr;
+
+    return newStr;
 }
 
 // console.log(substring('Hello, my love!', 10, 15));
-
 
 
 function slice (str, index1, index2) {
@@ -98,61 +98,149 @@ function slice (str, index1, index2) {
         return null;
     }
 
-    let newStr = '';
-
-
-    if (index1 < 0 && index2 < 0) {
-        index1 = str.length + index1;
-        index2 = str.length + index2;
-    }
+    let firstIndex = index1
+    let secondIndex = index2
 
     if (index1 < 0) {
-        index1 = str.length + index1;
+        firstIndex = str.length + index1;
     }
 
-    if(index2 < 0) {
-        index2 = str.length + index2;
+    if (index2 < 0) {
+        secondIndex = str.length + index2;
     }
-    
 
-    for (let i = index1; i < index2; i++) {
+    let newStr = '';
+
+    for (let i = firstIndex; i < secondIndex; i++) {
         newStr = newStr + str[i];
     }
+
     return newStr;
 }
-const arrayIndex = [-11, -5];
-console.log(slice('Hello, my love!',...arrayIndex));
-console.log('Hello, my love!'.slice(...arrayIndex));
+// const arrayIndex = [-11, -6];
+// console.log(slice('Hello, my love!',...arrayIndex));
+// console.log('Hello, my love!'.slice(...arrayIndex));
+
+
+function repeat (str, count) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+
+    if (isNumber(count) === false && count < 0) {
+        return null;
+    }
+
+    let counter = count
+
+    if (isFractionalNumber(counter) === true) {
+        counter = Math.floor(counter);
+    }
+
+    let newString = '';
+
+    for (let i = 0; i < counter; i++) {
+        newString = newString + str;
+    }
+
+    return newString;
+}
+
+// let numb = 5.9;
+// console.log(repeat('Hello!', numb));
+// console.log('Hello!'.repeat(numb));
+
+// NOT WORKING #!@#!@#!@#!@#!@ XAXAXAXAXA
+function trim (str) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+    
+    console.log('str.length', str.length);
+
+    let newString = '';
+
+    if (str[0] == false && str[str.length - 1] == false) {
+        for (let i = 1; i < str.length - 1; i++) {
+            newString += str[i];
+        }
+
+        console.log('newString.length', newString.length);
+        return newString;
+    }
+    
+    if (str[0] == false) {
+        for (let i = 1; i < str.length; i++) {
+            newString += str[i];
+        }
+
+        console.log('newString.length', newString.length);
+        return newString;
+    }
+   
+    if (str[str.length - 1] == false) {
+        for (let i = 0; i < str.length - 1; i++) {
+            newString += str[i];
+        }
+
+        console.log('newString.length', newString.length);
+        return newString;
+    }
+}
+
+let hi = '    Hello!       ';
+
+console.log(trim(hi));
+console.log(hi.trim());
 
 
 
-
-
-
-
-
-
-
-// function trim (str) {
-//     if (typeof str !== 'string') {
+// function endsWith (str, value) {
+//     if (typeof str !== 'string' && typeof value !== 'string') {
 //         return null;
 //     }
 
-//     let newStr = '';
-//     let a ;
-//     let b ;
-//     for (let i = 0; i < str.length; i++) {
-//         if (str[0] === '') {
-//             a = str[0];
-//         } else if (str[-1] === '') {
-//             b = str[-1];
-//         } else {
-//             newStr = str[i];
-//         }
+//     if (str[str.length - 1] === value) {
+//         return true;
 //     }
-    
+//     return false;
 // }
 
+// let item = '!';
+// console.log(endsWith('Hi!', item));
+// console.log('Hi!'.endsWith(item));
+
+
+function endsWith (str, value) {
+    if (typeof str !== 'string' && typeof value !== 'string') {
+        return null;
+    }
+    
+    let newStr = '';
+
+    for (i = str.length - 1; i >= value.length ; i--) {
+        newStr += str[i];
+        console.log('newStr =', newStr);
+    }
+    
+    if (newStr === value) {
+        return true;
+    }
+    return false;
+   
+}
+
+let item = 'i!';
+console.log(endsWith('Hi!', item));
+console.log('Hi!'.endsWith(item));
 
 
 
+
+// function includes (str, searchStr) {
+//     if (typeof str !== 'string' && typeof searchStr !== 'string') {
+//         return null;
+//     }
+
+
+// }
