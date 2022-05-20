@@ -150,65 +150,7 @@ function repeat (str, count) {
 // console.log(repeat('Hello!', numb));
 // console.log('Hello!'.repeat(numb));
 
-// NOT WORKING #!@#!@#!@#!@#!@ XAXAXAXAXA
-function trim (str) {
-    if (typeof str !== 'string') {
-        return null;
-    }
-    
-    console.log('str.length', str.length);
 
-    let newString = '';
-
-    if (str[0] == false && str[str.length - 1] == false) {
-        for (let i = 1; i < str.length - 1; i++) {
-            newString += str[i];
-        }
-
-        console.log('newString.length', newString.length);
-        return newString;
-    }
-    
-    if (str[0] == false) {
-        for (let i = 1; i < str.length; i++) {
-            newString += str[i];
-        }
-
-        console.log('newString.length', newString.length);
-        return newString;
-    }
-   
-    if (str[str.length - 1] == false) {
-        for (let i = 0; i < str.length - 1; i++) {
-            newString += str[i];
-        }
-
-        console.log('newString.length', newString.length);
-        return newString;
-    }
-}
-
-let hi = '    Hello!       ';
-
-console.log(trim(hi));
-console.log(hi.trim());
-
-
-
-// function endsWith (str, value) {
-//     if (typeof str !== 'string' && typeof value !== 'string') {
-//         return null;
-//     }
-
-//     if (str[str.length - 1] === value) {
-//         return true;
-//     }
-//     return false;
-// }
-
-// let item = '!';
-// console.log(endsWith('Hi!', item));
-// console.log('Hi!'.endsWith(item));
 
 
 function endsWith (str, value) {
@@ -218,7 +160,10 @@ function endsWith (str, value) {
     
     let newStr = '';
 
-    for (i = str.length - 1; i >= value.length ; i--) {
+    let newLength = str.length - value.length; 
+    console.log(newLength);
+
+    for (i = newLength; i < str.length ; i++) {
         newStr += str[i];
         console.log('newStr =', newStr);
     }
@@ -229,18 +174,118 @@ function endsWith (str, value) {
     return false;
    
 }
-
-let item = 'i!';
-console.log(endsWith('Hi!', item));
-console.log('Hi!'.endsWith(item));
-
-
+// let item = 'Hello, zhenja!'
+// let item1 = 'nja!';
+// console.log(endsWith(item, item1));
+// console.log(item.endsWith(item1));
 
 
-// function includes (str, searchStr) {
-//     if (typeof str !== 'string' && typeof searchStr !== 'string') {
+// Все функции выше рабочие, те что ниже нужно доделывать
+
+
+// NOT WORKING #!@#!@#!@#!@#!@ XAXAXAXAXA
+// function trim (str) {
+//     if (typeof str !== 'string') {
 //         return null;
 //     }
+    
+//     console.log('str.length', str.length);
 
+//     let newString = '';
 
+//     if (str[0] == false && str[str.length - 1] == false) {
+//         for (let i = 1; i < str.length - 1; i++) {
+//             newString += str[i];
+//         }
+
+//         console.log('newString.length', newString.length);
+//         return newString;
+//     }
+    
+//     if (str[0] == false) {
+//         for (let i = 1; i < str.length; i++) {
+//             newString += str[i];
+//         }
+
+//         console.log('newString.length', newString.length);
+//         return newString;
+//     }
+   
+//     if (str[str.length - 1] == false) {
+//         for (let i = 0; i < str.length - 1; i++) {
+//             newString += str[i];
+//         }
+
+//         console.log('newString.length', newString.length);
+//         return newString;
+//     }
 // }
+
+// let hi = '    Hello!       ';
+
+// console.log(trim(hi));
+// console.log(hi.trim());
+
+
+
+
+
+
+function trim (str) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+    
+    console.log('str.length', str.length);
+
+    let newString = '';
+
+     
+        for (let i = 0; i < str.length; i++) {
+        if (str[i] !== String.fromCharCode(32)) {
+            newString = newString + str[i];
+        }
+    }
+
+    // console.log('String.fromCharCode(32)', String.fromCharCode(32));
+    console.log('newString.length', newString.length);
+    return newString; 
+
+
+
+
+    // if (str[0] == false && str[str.length - 1] == false) {
+    //     for (let i = 1; i < str.length - 1; i++) {
+    //         newString += str[i];
+    //     }
+
+    //     console.log('newString.length', newString.length);
+    //     return newString;
+    // }
+    
+    // if (str[0] == false) {
+    //     for (let i = 1; i < str.length; i++) {
+    //         newString += str[i];
+    //     }
+
+    //     console.log('newString.length', newString.length);
+    //     return newString;
+    // }
+   
+    // if (str[str.length - 1] == false) {
+    //     for (let i = 0; i < str.length - 1; i++) {
+    //         newString += str[i];
+    //     }
+
+    //     console.log('newString.length', newString.length);
+    //     return newString;
+    // }
+}
+
+let hi = '    Hello, zhenja!       ';
+
+console.log(trim(hi));
+console.log(hi.trim());
+
+
+
