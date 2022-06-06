@@ -69,6 +69,17 @@ function substring (str, index1, index2) {
         return null;
     }
 
+    if (index1 > index2) {
+        let newStr = '';
+
+    for (let i = index2; i < index1; i++) {
+        newStr = newStr + str[i];
+    }
+
+    return newStr;
+
+    }
+
     let newStr = '';
 
     for (let i = index1; i < index2; i++) {
@@ -78,7 +89,8 @@ function substring (str, index1, index2) {
     return newStr;
 }
 
-// console.log(substring('Hello, my love!', 10, 15));
+// console.log(substring('Hello, my love!', 15, 10));
+// console.log('Hello, my love!'.substring(15, 10));
 
 
 function slice (str, index1, index2) {
@@ -180,8 +192,48 @@ function endsWith (str, value) {
 // console.log(item.endsWith(item1));
 
 
-// Все функции выше рабочие, те что ниже нужно доделывать
 
+
+
+
+
+
+
+// Все функции выше рабочие, ниже те что ниже нужно доделывать
+
+// более менне нормальное решение trim
+
+function trim (str) {
+    if (typeof str !== 'string') {
+        return null;
+    }
+    
+    console.log('str.length', str.length);
+
+    let newString = '';
+
+     
+        for (let i = 0; i < str.length; i++) {
+        if (str[i] !== String.fromCharCode(32)) {
+            newString = newString + str[i];
+        }
+    }
+
+    console.log('String.fromCharCode(32)', String.fromCharCode(32));
+    console.log('newString.length', newString.length);
+    // return newString; 
+}
+
+let hi = '    Hello, zhenja!       ';
+
+// console.log(trim(hi));
+// console.log(hi.trim());
+
+
+
+
+
+// один из вариантов trim(вариант не оч)
 
 // NOT WORKING #!@#!@#!@#!@#!@ XAXAXAXAXA
 // function trim (str) {
@@ -231,61 +283,31 @@ function endsWith (str, value) {
 
 
 
-function trim (str) {
-    if (typeof str !== 'string') {
-        return null;
-    }
+// ниже одно из условий для trim(тоже не оч)
+
+//     if (str[0] == false && str[str.length - 1] == false) {
+//         for (let i = 1; i < str.length - 1; i++) {
+//             newString += str[i];
+//         }
+
+//         console.log('newString.length', newString.length);
+//         return newString;
+//     }
     
-    console.log('str.length', str.length);
+//     if (str[0] == false) {
+//         for (let i = 1; i < str.length; i++) {
+//             newString += str[i];
+//         }
 
-    let newString = '';
-
-     
-        for (let i = 0; i < str.length; i++) {
-        if (str[i] !== String.fromCharCode(32)) {
-            newString = newString + str[i];
-        }
-    }
-
-    // console.log('String.fromCharCode(32)', String.fromCharCode(32));
-    console.log('newString.length', newString.length);
-    return newString; 
-
-
-
-
-    // if (str[0] == false && str[str.length - 1] == false) {
-    //     for (let i = 1; i < str.length - 1; i++) {
-    //         newString += str[i];
-    //     }
-
-    //     console.log('newString.length', newString.length);
-    //     return newString;
-    // }
-    
-    // if (str[0] == false) {
-    //     for (let i = 1; i < str.length; i++) {
-    //         newString += str[i];
-    //     }
-
-    //     console.log('newString.length', newString.length);
-    //     return newString;
-    // }
+//         console.log('newString.length', newString.length);
+//         return newString;
+//     }
    
-    // if (str[str.length - 1] == false) {
-    //     for (let i = 0; i < str.length - 1; i++) {
-    //         newString += str[i];
-    //     }
+//     if (str[str.length - 1] == false) {
+//         for (let i = 0; i < str.length - 1; i++) {
+//             newString += str[i];
+//         }
 
-    //     console.log('newString.length', newString.length);
-    //     return newString;
-    // }
-}
-
-let hi = '    Hello, zhenja!       ';
-
-console.log(trim(hi));
-console.log(hi.trim());
-
-
-
+//         console.log('newString.length', newString.length);
+//         return newString;
+//     }
